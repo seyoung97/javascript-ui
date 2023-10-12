@@ -7,17 +7,29 @@
   <body>
     <div class="alert-box" id="alert">
       알림창임
-      <button onclick="document.getElementById('alert').style.display='none'">
-        닫기
-      </button>
+      <button onclick="closeAlert()">닫기</button>
     </div>
-    <button onclick="document.getElementById('alert').style.display='block'">
-      버튼
-    </button>
+    <button onclick="openAlert()">버튼</button>
+    <script>
+      function openAlert() {
+        document.getElementById("alert").style.display = "block";
+      }
+
+      function closeAlert() {
+        document.getElementById("alert").style.display = "none";
+      }
+    </script>
     <!-- 
-      onclick 속성 
-      onclick에 실행하고 싶은 자바스크립트 코드를 작성할 수 있음 
-      클릭하면 작성한 자바스크립트 코드를 실행하도록 함 
+      코드 짤 때 자주 겪을 에러
+      1. 자바스크립트 코드는 html 코드 밑에 작성해야한다. 
+      - 컴퓨터가 html 파일을 읽을 때 위에서부터 한줄 한줄 읽음
+      - html을 먼저 읽어야 자바스크립트에서 뭘 조작하고자 하는지 알 수 있기 때문에 
+      - 자바스크립트 보다 html을 먼저(위에) 작성해야함
+
+      2. 셀렉터 오타 주의
+      - 부여한 id를 잘못 작성하는 경우 많음
+      - 크롬 개발자 탭에 뜨는 에러로 해결책 찾기
+      - 에러 메세지에서 ~가 null이다 -> 셀렉터 오타인 경우 많음
     -->
   </body>
 </html>
