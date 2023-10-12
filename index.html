@@ -2,19 +2,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <h1 id="hello">안녕하세요</h1>
-    <h1 id="hi">초보</h1>
-    <script>
-      // document = html 문서 | . = ~의 | getElement = html 요소를 가져와라
-      document.getElementById("hello").innerHTML = "안녕";
-      // innerHTML 요소 내용 변경
-      document.getElementById("hello").style.color = "red";
-      // style.color  요소 색깔 변경
-      document.getElementById("hello").style.fontSize = "16px";
-      // 폰트 사이즈 변경
-      document.getElementById("hi").innerHTML = "고수";
-    </script>
+    <div class="alert-box" id="alert">
+      알림창임
+      <button onclick="document.getElementById('alert').style.display='none'">
+        닫기
+      </button>
+    </div>
+    <button onclick="document.getElementById('alert').style.display='block'">
+      버튼
+    </button>
+    <!-- 
+      onclick 속성 
+      onclick에 실행하고 싶은 자바스크립트 코드를 작성할 수 있음 
+      클릭하면 작성한 자바스크립트 코드를 실행하도록 함 
+    -->
   </body>
 </html>
