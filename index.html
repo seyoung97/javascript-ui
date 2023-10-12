@@ -6,30 +6,20 @@
   </head>
   <body>
     <div class="alert-box" id="alert">
-      알림창임
-      <button onclick="closeAlert()">닫기</button>
+      <p id="alert-text">알림창임</p>
+      <button onclick="alertHandler('none')">닫기</button>
     </div>
-    <button onclick="openAlert()">버튼</button>
+    <button onclick="alertHandler('block', '아이디를 입력하세요')">
+      아이디
+    </button>
+    <button onclick="alertHandler('block', '비밀번호를 입력하세요')">
+      비밀번호
+    </button>
     <script>
-      function openAlert() {
-        document.getElementById("alert").style.display = "block";
-      }
-
-      function closeAlert() {
-        document.getElementById("alert").style.display = "none";
+      function alertHandler(style, text) {
+        document.getElementById("alert").style.display = style;
+        document.getElementById("alert-text").innerHTML = text;
       }
     </script>
-    <!-- 
-      코드 짤 때 자주 겪을 에러
-      1. 자바스크립트 코드는 html 코드 밑에 작성해야한다. 
-      - 컴퓨터가 html 파일을 읽을 때 위에서부터 한줄 한줄 읽음
-      - html을 먼저 읽어야 자바스크립트에서 뭘 조작하고자 하는지 알 수 있기 때문에 
-      - 자바스크립트 보다 html을 먼저(위에) 작성해야함
-
-      2. 셀렉터 오타 주의
-      - 부여한 id를 잘못 작성하는 경우 많음
-      - 크롬 개발자 탭에 뜨는 에러로 해결책 찾기
-      - 에러 메세지에서 ~가 null이다 -> 셀렉터 오타인 경우 많음
-    -->
   </body>
 </html>
