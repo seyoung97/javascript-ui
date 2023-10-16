@@ -7,7 +7,7 @@
   <body>
     <div class="alert-box" id="alert">
       <p id="alert-text">알림창임</p>
-      <button onclick="alertHandler('none')">닫기</button>
+      <button id="close">닫기</button>
     </div>
     <button onclick="alertHandler('block', '아이디를 입력하세요')">
       아이디
@@ -16,8 +16,19 @@
       비밀번호
     </button>
     <script>
+      // addEventListner
+      // tag에 onClick 써도 되지만 지저분함
+      // 스크립트 안에서 해결할 수 있도록 하는 문법
+      document.getElementById("close").addEventListener("click", function () {
+        document.getElementsByClassName("alert-box")[0].style.display = "none";
+      });
+      // close라는 아이디를 가진 요소를 가져와서
+      // click을 했을 때 콜백함수를 실행하도록 하라는 의미
+
       function alertHandler(style, text) {
-        document.getElementById("alert").style.display = style;
+        document.getElementsByClassName("alert-box")[0].style.display = style;
+        // class 이름이 중복 될 수 있기 때문에 뒤에 [0] 이런식으로 인덱싱을 해줘야함
+        // [0]는 여러개의 alert-box 중 제일 위에 있는 것을 의미
         document.getElementById("alert-text").innerHTML = text;
       }
     </script>
