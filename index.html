@@ -29,6 +29,21 @@
       <li class="list-group-item">A fourth item</li>
       <li class="list-group-item">And a fifth one</li>
     </ul>
+    <p class="hello">안녕</p>
+    <button id="test-btn">button</button>
+
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger" id="close">닫기</button>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <script>
       // querySelector => css selector로 요소 찾는
       // css 문법을 사용해 찾는 것이기 때문에 class이름인 경우에는 앞에 .
@@ -44,6 +59,22 @@
           document.querySelector(".list-group").classList.toggle("show");
           // toggle 있으면 붙이고 없으면 떼고
         });
+
+      //jquery는 긴 자바스크립트 문법을 보다 간결하게 쓸 수 있게 해주는 라이브러리이다
+      $(".hello").html("잘가");
+      //  document.querySelector('.hello').innerHTML = ('잘가')
+      $(".hello").css("color", "red");
+      $(".hello").addClass("bye");
+      // 제거는 .removeClass()
+      // 토글은 .toggleClass()
+
+      // jquery로 addEventListner
+      $("#test-btn").on("click", function () {
+        $(".hello").hide();
+        // display none 이랑 같음
+        // .fadeOut() 서서히 사라지게
+        // .slideUp() 위로 올라가면서 사라지게
+      });
     </script>
   </body>
 </html>
