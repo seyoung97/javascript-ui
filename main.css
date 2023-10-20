@@ -24,8 +24,21 @@
   padding: 30px;
 }
 .white-bg {
-  display: none;
   background: white;
   border-radius: 5px;
   padding: 30px;
 }
+
+.show-modal {
+  display: block;
+}
+
+/* 
+one-way UI 애니메이션 만드는 법
+one-way UI 애니메이션이란 a상태 -> b상태 
+한방향으로 진행되는 경우 예)투명도 0 -> 1 
+1. 시작스타일 만들고
+2. 최종스타일 만들기 (css class로)
+3. 자바스크립트로 원할 때 최종스타일로 변하라고 코드 짜기 
+4. transition 추가
+*/

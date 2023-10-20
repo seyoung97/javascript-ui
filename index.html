@@ -13,6 +13,13 @@
     <link href="main.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- 모달창이 화면 맨 앞에 오도록 하기 위해 보통 모달 창을 제일 위에 작성함 -->
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger" id="close">닫기</button>
+      </div>
+    </div>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand">Navbar</span>
@@ -29,15 +36,7 @@
       <li class="list-group-item">A fourth item</li>
       <li class="list-group-item">And a fifth one</li>
     </ul>
-    <p class="hello">안녕</p>
-    <button id="test-btn">button</button>
-
-    <div class="black-bg">
-      <div class="white-bg">
-        <h4>로그인하세요</h4>
-        <button class="btn btn-danger" id="close">닫기</button>
-      </div>
-    </div>
+    <button id="login">로그인</button>
 
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -45,35 +44,20 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      // querySelector => css selector로 요소 찾는
-      // css 문법을 사용해 찾는 것이기 때문에 class이름인 경우에는 앞에 .
-      // id인 경우에는 앞에 # 있어야 함
-      // 맨 위의 요소만 찾는 특징이 있음
-      // 두번 째거를 찾고 싶다면 querySelectorAll('list-group-item')[1]
-      // querySelectorAll로 모두 찾은 다음에 인덱싱으로 찾고자하는거 불러오기
-
       document
         .querySelector(".navbar-toggler")
         .addEventListener("click", function () {
-          // class 이름 추가하는 방법
           document.querySelector(".list-group").classList.toggle("show");
-          // toggle 있으면 붙이고 없으면 떼고
         });
 
-      //jquery는 긴 자바스크립트 문법을 보다 간결하게 쓸 수 있게 해주는 라이브러리이다
-      $(".hello").html("잘가");
-      //  document.querySelector('.hello').innerHTML = ('잘가')
-      $(".hello").css("color", "red");
-      $(".hello").addClass("bye");
-      // 제거는 .removeClass()
-      // 토글은 .toggleClass()
+      // 모달창 띄우기
+      $("#login").on("click", function () {
+        document.querySelector(".black-bg").classList.add("show-modal");
+      });
 
-      // jquery로 addEventListner
-      $("#test-btn").on("click", function () {
-        $(".hello").hide();
-        // display none 이랑 같음
-        // .fadeOut() 서서히 사라지게
-        // .slideUp() 위로 올라가면서 사라지게
+      // 모달창 닫기
+      $("#close").on("click", function () {
+        document.querySelector(".black-bg").classList.remove("show-modal");
       });
     </script>
   </body>
