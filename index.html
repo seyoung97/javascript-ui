@@ -94,6 +94,15 @@
       // else if, else는 그게 아니면 이라는 의미
       // 따라서 앞의 if 문이 참이면 뒤의 else문들은 컴퓨터가 안읽음
       // if문을 연달아 쓰면 앞의 if 문이 참이어도 뒤에 것도 검사함
+
+      // input 태그만 감지할 수 있는 event들
+      // input -> 유저가 입력한 값이 변할 때 실행됨
+      // change -> input과 같이 입력한 값이 변할 때
+      // 단 input은 입력을 할 때 마다 감지하고
+      // change는 input에 입력한 값이 바뀌고 포커스를 잃을 때(커서를 다른 곳에 찍을 때) 발생
+      document.getElementById("email").addEventListener("change", function () {
+        console.log("input");
+      });
     </script>
   </body>
 </html>
