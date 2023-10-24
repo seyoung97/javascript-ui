@@ -1,3 +1,13 @@
+/* 
+one-way UI 애니메이션 만드는 법
+one-way UI 애니메이션이란 a상태 -> b상태 
+한방향으로 진행되는 경우 예)투명도 0 -> 1 
+1. 시작스타일 만들고
+2. 최종스타일 만들기 (css class로)
+3. 자바스크립트로 원할 때 최종스타일로 변하라고 코드 짜기 
+4. 서서히 변하도록 transition 추가
+*/
+
 .alert-box {
   padding: 20px;
   background-color: skyblue;
@@ -7,21 +17,33 @@
 }
 
 .list-group {
-  display: none;
+  height: 0px;
+  visibility: hidden;
+  overflow: hidden;
+  transition: all 1s;
 }
 
 .show {
-  display: block;
+  visibility: visible;
+  height: 210px;
 }
 
 .black-bg {
-  display: none;
   width: 100%;
   height: 100%;
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
   z-index: 5;
   padding: 30px;
+  visibility: hidden;
+  /* visibility
+  display: none과 똑같은 효과지만 
+  animation 줄 때 주로 사용 
+  display none은 아예 html에서 없애 버리지만
+  visibility hidden은 모습만 없애는 것이기 때문에 
+  애니메이션이 잘 먹힘*/
+  opacity: 0;
+  transition: all 1s;
 }
 .white-bg {
   background: white;
@@ -30,15 +52,6 @@
 }
 
 .show-modal {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
-
-/* 
-one-way UI 애니메이션 만드는 법
-one-way UI 애니메이션이란 a상태 -> b상태 
-한방향으로 진행되는 경우 예)투명도 0 -> 1 
-1. 시작스타일 만들고
-2. 최종스타일 만들기 (css class로)
-3. 자바스크립트로 원할 때 최종스타일로 변하라고 코드 짜기 
-4. transition 추가
-*/
