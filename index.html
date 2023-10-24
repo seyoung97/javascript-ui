@@ -17,7 +17,18 @@
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
-        <button class="btn btn-danger" id="close">닫기</button>
+        <form action="success.html">
+          <!-- form은 서버로 유저정보 전송하려고 쓴느 것 -->
+          <!-- action 속성에 전송할 서버의 url을 기입하면 거기로 정송 됨 -->
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="pw" />
+          </div>
+          <button type="submit" class="btn btn-primary">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
       </div>
     </div>
     <nav class="navbar navbar-light bg-light">
@@ -38,8 +49,7 @@
     </ul>
     <div class="main-bg">
       <h4>Shirts on Sale</h4>
-
-      <button id="login">로그인</button>
+      <button id="login" class="btn btn-danger">로그인</button>
     </div>
 
     <script
@@ -63,6 +73,27 @@
       $("#close").on("click", function () {
         document.querySelector(".black-bg").classList.remove("show-modal");
       });
+
+      // 로그인 input 유효성 검사
+      document.querySelector("form").addEventListener("submit", function (e) {
+        if (document.getElementById("email").value == "") {
+          alert("아이디를 입력해주세요.");
+          e.preventDefault();
+          // e는 event 객체
+          // preventDefault는 이벤트 발생을 막는 함수
+        }
+        if (document.getElementById("pw").value == "") {
+          alert("비밀번호를 입력해주세요.");
+          e.preventDefault();
+        }
+        if (document.getElementById("pw").value.length < 6) {
+          alert("비밀번호 6자리 이상을 입력해주세요.");
+          e.preventDefault();
+        }
+      });
+      // else if, else는 그게 아니면 이라는 의미
+      // 따라서 앞의 if 문이 참이면 뒤의 else문들은 컴퓨터가 안읽음
+      // if문을 연달아 쓰면 앞의 if 문이 참이어도 뒤에 것도 검사함
     </script>
   </body>
 </html>
