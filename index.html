@@ -33,7 +33,8 @@
     </div>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand">Navbar</span>
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark">Dark 🔄</span>
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -102,6 +103,22 @@
       // change는 input에 입력한 값이 바뀌고 포커스를 잃을 때(커서를 다른 곳에 찍을 때) 발생
       document.getElementById("email").addEventListener("change", function () {
         console.log("input");
+      });
+
+      // Dark 모드
+      // badge 클릭 횟수(홀,짝)에 따라 변경되도록 구현
+      // 변수 사용 이유: 자료 재사용, 특정 값을 기억
+      let count = 0;
+      // badge 클릭 횟수 기록할 변수
+      document.querySelector(".badge").addEventListener("click", function () {
+        count += 1;
+        // 변수에 +1 하는 법: 변수++, 변수 +=1, 변수 = 변수 + 1
+        console.log("count", count);
+        if (count % 2 === 0) {
+          document.querySelector(".badge").innerText = "Dark  🔄";
+        } else {
+          document.querySelector(".badge").innerText = "Light  🔄";
+        }
       });
     </script>
   </body>
