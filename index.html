@@ -52,6 +52,7 @@
       <h4>Shirts on Sale</h4>
       <button id="login" class="btn btn-danger">로그인</button>
     </div>
+    <div class="alert alert-danger">5초 이내 구매시 사은품 증정!</div>
 
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -124,6 +125,29 @@
       // let 재선언 불가 똑같은 변수 선언 방지/ 재할당 가능/ 범위 {}
       // const 재선언 불가/ 재할당 불가 변하면 안되는 값(상수)을 보관하기 좋음/ 범위 {}
       // var 재선언 가능/ 재할당 가능/ 범위 function
+
+      // setInterval
+      // x초 마다 특정코드실행
+      // setInterval(function(){}, ms)
+      let time = 5;
+      function countDown() {
+        time = time - 1;
+        document.querySelector(
+          ".alert"
+        ).innerHTML = `${time}초 이내 구매시 사은품 증정!`;
+      }
+      setInterval(countDown, 1000);
+
+      // setTimeout
+      // x초 후 특정코드실행
+      // setTimeout(function(){}, ms)
+      // 첫번째 파라미터는 콜백함수, 두번째는 시간 (밀리세컨즈 단위)
+      function hideAlert() {
+        $(".alert").hide();
+      }
+      setTimeout(hideAlert, 5000);
+      // 콜백함수 자리에 만들어둔 함수 넣기
+      // 주의 함수이름만 적어야함 hideAlert() 이렇게 소괄호 적으면 안됨
     </script>
   </body>
 </html>
