@@ -78,19 +78,28 @@
 
       // 로그인 input 유효성 검사
       document.querySelector("form").addEventListener("submit", function (e) {
-        if (document.getElementById("email").value == "") {
+        const userEmail = document.getElementById("email").value;
+        const userPw = document.getElementById("pw").value;
+        if (userEmail == "") {
           alert("아이디를 입력해주세요.");
           e.preventDefault();
           // e는 event 객체
           // preventDefault는 이벤트 발생을 막는 함수
         }
-        if (document.getElementById("pw").value == "") {
+        if (/\S+@\S+.\S+/.test(userEmail) == false) {
+          alert("이메일 형식이 아닙니다.");
+          e.preventDefault();
+        }
+        if (userPw == "") {
           alert("비밀번호를 입력해주세요.");
           e.preventDefault();
         }
-        if (document.getElementById("pw").value.length < 6) {
+        if (userPw.length < 6) {
           alert("비밀번호 6자리 이상을 입력해주세요.");
           e.preventDefault();
+        }
+        if (/[A-Z]/.test(userPw) == false) {
+          alert("대문자가 포함된 비밀번호를 입력해주세요.");
         }
       });
       // else if, else는 그게 아니면 이라는 의미
